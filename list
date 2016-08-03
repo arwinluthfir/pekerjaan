@@ -1,0 +1,37 @@
+
+// data input pekerjaan
+var dataKerjaan = {
+			username : Meteor.user().username,
+			nama_pekerja : Meteor.user().profile.nama,
+			posisi_pekerja : Meteor.user().profile.posisi,
+			bidang_pekerja : Meteor.user().profile.bidang,
+			tanggal_kerjaan : tanggalHariIni,
+			detil_kerjaan :[{
+				id : idDetilKerjaan,
+				judul_kerjaan : judul_kerjaan,
+        		detil_kerjaan : detil_kerjaan,
+        		status_kerjaan : status_kerjaan,
+        		keterangan_kerjaan : keterangan_kerjaan
+			}]
+		};
+//status_pekerjaan isinya "SELESAI" atau "PENDING"
+
+//memasukkan data pekerjaan ke collection pekerjaan
+Pekerjaan.insert(dataKerjaan)
+
+//mencari pekerjaan dengan status pekerjaan "PENDING" di subdocument "detil_kerjaan"
+var result_arr = Pekerjaan.find(
+			{
+				"username":Meteor.user().username,
+				"tanggal_kerjaan":{$lt:tanggalHariIni},
+				"detil_kerjaan.status_kerjaan":"PENDING"
+			}
+			,
+			{
+				"detil_kerjaan":{
+					$elemMatch:{
+						"status_kerjaan": "PENDING"
+					}
+				}
+			}
+		);
