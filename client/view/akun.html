@@ -1,0 +1,90 @@
+
+<template name="Login">
+    <div class="row">
+        <div class="col-md-offset-5 col-md-3">
+            <div class="form-login">
+                <form>
+                <h4>ABSENSI BPJSTK</h4>
+                <label> Kode User </label>
+                <input type="text" name="userName" class="form-control input-sm chat-input" placeholder="Kode User" style="text-transform:uppercase"/>
+            <!-- </br> -->
+                <label> Kata Sandi </label>
+                <input type="password" name="userPassword" class="form-control input-sm chat-input" placeholder="Kata Sandi" style="text-transform:uppercase"/>
+                <br>
+                <div class="wrapper">
+                <!-- <span class="group-btn">    -->
+                    <input type="submit" value="Login">  
+                    <!-- <a href="#" class="btn btn-primary btn-md">Masuk <i class="fa fa-sign-in"></i></a> -->
+                    <a href="/Pendaftaran" class="btn btn-primary btn-md">Daftar <i class="fa fa-sign-in"></i></a>
+                <!-- </span> -->
+                </div>
+                </form>
+            </div>
+        
+        </div>
+    </div>
+
+</template>
+
+<template name="Logout">
+    <li><a href="#" class="logout">LOGOUT</a></li>
+</template>
+
+
+<template name="Pendaftaran">
+    <div class="row">
+        <div class="col-md-offset-5 col-md-3">
+            <div class="form-login">
+                <h4>ABSENSI BPJSTK</h4>
+                <form>
+                    <label> NPK </label>
+                    <input type="text" name="daftarNpk" class="form-control input-sm chat-input" placeholder="NPK" style="text-transform:uppercase"/>
+                    <br>
+                    <label> Kode User </label>
+                    <input type="text" name="daftarUserName" class="form-control input-sm chat-input" placeholder="Kode User" style="text-transform:uppercase"/>
+                    <br>
+                    <label> Kata Sandi </label>
+                    <input type="password" name="daftarUserPassword" class="form-control input-sm chat-input" placeholder="Kata Sandi" style="text-transform:uppercase"/>
+                    <br>
+                    <label> Ulang Kata Sandi </label>
+                    <input type="password" name="daftarUlangUserPassword" class="form-control input-sm chat-input" placeholder="Ulang Kata Sandi" style="text-transform:uppercase"/>
+                    <br>
+                    <label> Nama Lengkap </label>
+                    <input type="text" name="daftarNamaLengkap" class="form-control input-sm chat-input" placeholder="Nama Lengkap" style="text-transform:uppercase"/>
+                    <br>
+                    <label> Jabatan </label>
+                    <input type="text" name="daftarJabatan" class="form-control input-sm chat-input" placeholder="Jabatan" style="text-transform:uppercase"/>
+                    <br>   
+                    <label> Posisi </label>
+                    <select id="daftarPosisi">
+                      <option value="STAFF">Staff</option>
+                      <option value="KABID">Kepala Bidang</option>
+                    </select>
+                    <br>    
+                    <label> Bidang </label>
+                    <select id="daftarBidang">
+                      <option value="KEUTI">Keuangan dan TI</option>
+                      <option value="PELAYANAN">Pelayanan</option>
+                      <option value="UMUMSDM">Umum dan SDM</option>
+                      <option value="PEMASARAN">Pemasaran</option>
+                    </select>
+                    <br>     
+                        <input type="submit" value="Registrasi">
+
+                    
+                </form>
+                        <input type="button" class="hapusIdRegister" value="Hapus"><br>
+                <a href="/" class="btn btn-primary btn-md">Masuk <i class="fa fa-sign-in"></i></a>
+
+            </div>
+        </div>
+    </div>
+                <!-- {{#each pesan}}
+                        <p>{{_id}}</p>
+                        <p>tes</p>
+                    {{/each}} -->
+                    <!-- {{pesan}} -->
+
+
+                
+</template>

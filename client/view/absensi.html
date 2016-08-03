@@ -1,0 +1,66 @@
+
+<template name="tampilanMasuk">
+        <div class="span6">
+            {{#if hasilFotoMasuk}}
+            <div class="media">
+                <a class="pull-left" href="#">
+                    <img class="media-object" src="{{hasilFotoMasuk}}">
+                </a>
+<!--                 <div class="media-body">
+                </div> -->
+                        <!-- <button class="btn btn-primary">Masuk</button> -->
+                <label class="" style="text-transform:uppercase">KODE USER = {{username}}</label>
+                <br>
+                <label class="" style="text-transform:uppercase">TANGGAL = {{hari}}</label>
+                <br>
+                <label class="" style="text-transform:uppercase">JAM = {{jam}}</label>
+            </div>
+                <br>
+                {{#if tombolSimpanAbsenMasuk}}
+                    <input id="idTombolSimpanAbsenMasuk" type="button" class="simpanAbsenMasuk" value="Simpan Aben Masuk" style="display:none">
+                {{else}}
+                    <input id="idTombolSimpanAbsenMasuk" type="button" class="simpanAbsenMasuk" value="Simpan Aben Masuk">
+                {{/if}}
+              <!-- <input type="button" class="hapusAbsenMasuk" value="Hapus Absen Masuk"> -->
+            {{else}}
+
+
+              <input type="button" class="tombolAbsenMasuk" value="Absen Masuk">
+
+            {{/if}}
+        </div>
+    
+</template>
+
+
+<template name="tampilanPulang">
+        <div class="span6">
+            {{#if hasilFotoPulang}}
+            <div class="media">
+                <a class="pull-left" href="#">
+                    <img class="media-object" src="{{hasilFotoPulang}}">
+                </a>
+                <div class="media-body">
+                
+                </div>
+                        <!-- <button class="btn btn-primary">Masuk</button> -->
+                <label class="">username = {{username}}</label>
+                <br>
+                <label class="">hari = {{hari}}</label>
+                <br>
+                <label class="">Jam = {{jam}}</label>
+            </div>
+                <br>
+                {{#if tombolSimpanAbsenPulang}}
+                    <input id="idTombolSimpanAbsenMasuk" type="button" class="simpanAbsenPulang" value="Simpan Aben Pulang" style="display:none">
+                {{else}}
+                    <input id="idTombolSimpanAbsenMasuk" type="button" class="simpanAbsenPulang" value="Simpan Aben Pulang">
+                {{/if}}
+                <!-- <input type="button" class="simpanAbsenPulang" value="Simpan Aben Pulang"> -->
+                <!-- <input type="button" class="hapusAbsenPulang" value="Hapus Absen Pulang"> -->
+            {{else}}
+                <input type="button" class="tombolAbsenPulang" value="Absen Pulang">
+            {{/if}} 
+        </div>
+    
+</template>

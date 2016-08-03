@@ -1,0 +1,251 @@
+<template name="kerjaanKemarin">
+    <div class="span4">
+            <h2>Kemarin</h2>
+            <label>Nilai : A</label>
+            <br>
+            <!-- <input type="text" class="input-small"> -->
+            <!-- {{#each tanggalHariKemarin}} -->
+            <!-- <label class="">Tanggal : {{tanggal_kerjaan}}</label> -->
+            <!-- {{/each}} -->
+            <label class="">Tanggal : {{tanggalHariKemarin}}</label>
+            <table class="table table-bordered  table-striped  table-condensed">
+                <tbody>
+                    <tr class="info">
+                        <th>JUDUL</th>
+                        <th>DETIL</th>
+                        <th>STATUS</th>
+                        <th>KETERANGAN</th>
+                    </tr>
+                    
+                    {{> detilKerjaanKemarin}}
+                </tbody>
+            </table>
+            <p><a class="btn" href="#">&nbsp;Ubah</a><a class="btn" href="#">&nbsp;Lihat Detail »</a>
+            </p>
+        </div>
+</template>
+
+<template name="detilKerjaanKemarin">
+    {{#each dataKerjaanKemarin}}
+    <!-- <tr> -->
+        <!-- <td>{{_id}}</td> -->
+            <!-- <td>{{tanggal_kerjaan}}</td> -->
+        {{#each detil_kerjaan}}
+        <tr>
+            <!-- <td>{{_id}}</td> -->
+            <td>{{judul_kerjaan}}</td>
+            <td>{{detil_kerjaan}}</td>
+            <td>{{status_kerjaan}}</td>
+            <td>{{keterangan_kerjaan}}</td>
+        </tr>
+        {{/each}}
+    <!-- </tr> -->
+    {{/each}}
+</template>
+
+<template name="kerjaanHariIni">
+    <div class="span4">
+            <h2>Hari ini</h2>
+            <label>Nilai : A</label>
+            <br>
+            <label class="">Tanggal : {{tanggalHariIni}}</label>
+
+            <div id="inputKerjaanHariIni" style="display:none">
+                    {{> templateTambahKerjaanHariIni}}
+            </div>
+
+            <table class="table table-bordered  table-striped  table-condensed" id="tabelHariIni">
+                <tbody>
+                    <tr class="success">
+<!--                         <th>ID</th>
+                        <th>Tanggal</th>
+                        <th>ID Kerjaan</th> -->
+                        <th>JUDUL</th>
+                        <th>DETIL</th>
+                        <th>STATUS</th>
+                        <th>KETERANGAN</th>
+                    </tr>
+                    {{> detilKerjaanHariIni}}
+                </tbody>
+            </table>
+            <!-- <p style="display:none">This is a paragraph.</p> -->
+
+            <button class="showTambahKerjaan">Tambah Pekerjaan</button>
+            <button class="hideTambahKerjaan" style="display:none">Sembunyikan</button>
+            <button class="hapusKerjaan">Hapus Pekerjaan</button><br>
+
+            <label class="">PEKERJAAN BELUM SELESAI</label><br>
+            {{> detilKerjaanBelumSelesai}}
+            <!-- <input id="idTambahPekerjaanHariIni" type="button" class="tambahPekerjaanHariIni" value="Tambah"> -->
+            <!-- <input id="idUbahPekerjaanHariIni" type="button" class="ubahPekerjaanHariIni" value="Ubah"> -->
+            <!-- <input id="idHapusPekerjaanHariIni" type="button" class="hapusPekerjaanHariIni" value="Hapus"> -->
+            <!-- <p>
+                <a class="btn" href="#">Tambah</a>
+                <a class="btn" href="#">Ubah</a>
+                <a class="btn" href="#">Hapus</a>
+            </p> -->
+    </div>
+</template>
+
+<template name="detilKerjaanHariIni">
+    {{#each dataKerjaanHariIni}}
+    <!-- <tr> -->
+        <!-- <td>{{_id}}</td>
+            <td>{{tanggal_kerjaan}}</td> -->
+        {{#each detil_kerjaan}}
+        <tr>
+            <!-- <td>{{id}}</td> -->
+            <td><label style="text-transform:uppercase">{{judul_kerjaan}}</label></td>
+            <td><label style="text-transform:uppercase">{{detil_kerjaan}}</label></td>
+            <td><label style="text-transform:uppercase">{{status_kerjaan}}</label></td>
+            <td><label style="text-transform:uppercase">{{keterangan_kerjaan}}</label></td>
+        </tr>
+        {{/each}}
+    <!-- </tr> -->
+    {{/each}}
+</template>
+
+<template name="detilKerjaanBelumSelesai">
+            
+        {{#each dataKerjaanBelumSelesai}}
+        <!-- {{_id}} -->
+        <label style="text-transform:uppercase">TANGGAL : {{tanggal_kerjaan}}</label>
+            <table class="table table-bordered  table-striped  table-condensed" id="tabelHariIni">
+                <tbody>
+                    <tr class="success">
+<!--                         <th>ID</th>
+                        <th>Tanggal</th>
+                        <th>ID Kerjaan</th> -->
+                        <!-- <th>ID</th> -->
+                        <th>JUDUL</th>
+                        <th>DETIL</th>
+                        <th>STATUS</th>
+                        <th>KETERANGAN</th>
+                        <th>TINDAKAN</th>
+                    </tr>
+                    {{#each detil_kerjaan}}
+                    <tr class="danger">
+                        <!-- <th>{{id}}</th> -->
+                        <th>{{judul_kerjaan}}</th>
+                        <th>{{detil_kerjaan}}</th>
+                        <th>{{status_kerjaan}}</th>
+                        <th>{{keterangan_kerjaan}}</th>
+                        <th>
+                            <input type="button" class="idPekerjaanBelumSelesai" value="Hapus Kerjaan"></th>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        {{/each}}
+
+</template>
+
+<template name="templateTambahKerjaanHariIni">
+                <!-- <form> -->
+                    <label> Judul </label>
+                    <input type="text" name="judulKerjaan" class="form-control input-sm chat-input" placeholder="Judul" style="text-transform:uppercase"/>
+                    <br>
+                    <label> Detil </label>
+                    <br>
+                    <textarea rows="3" name="detilKerjaan" style=" width: 90%;text-transform:uppercase" placeholder="Detil Pekerjaan"></textarea><br>
+                    <label> Status </label>
+                    <select id="statusKerjaan">
+                      <option value="PENDING">BELUM SELESAI</option>
+                      <option value="SELESAI">SELESAI</option>
+                    </select>
+                    <br>
+                    <label> Keterangan </label>
+                    <input type="text" name="keteranganKerjaan" class="form-control input-sm chat-input" placeholder="Keterangan" style="text-transform:uppercase"/>
+                    <br> 
+                    <!-- <input type="submit" value="Simpan Pekerjaan"> -->
+                    <button class="TambahKerjaan">Simpan Pekerjaan</button>
+                <!-- </form> -->
+</template>
+
+
+<template name="kerjaanBesok">
+    <div class="span4">
+            <h2>Besok</h2>
+            <!-- <div class='col-sm-6'>
+                 <div class="form-group">
+                    <div class='input-group date' id='datetimepicker3'>
+                        <input type='text' class="form-control" id='tanggalBesok'/>
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-time" id='showCalendar'></span>
+                        </span>
+                        <br>
+                    </div>
+                        <button class="showValueTanggal">Ambil tanggal</button>
+                </div>
+
+            </div> -->
+
+            <label class="">Tanggal : {{tanggalBesok}}</label>
+
+            <div id="inputKerjaanBesok" style="display:none">
+                    {{> templateTambahKerjaanBesok}}
+            </div>
+            <table class="table table-bordered  table-striped  table-condensed">
+                <tbody>
+                    <tr class="info">
+                        <th>JUDUL</th>
+                        <th>DETIL</th>
+                        <th>STATUS</th>
+                        <th>KETERANGAN</th>
+                    </tr>
+                    
+                    {{> detilKerjaanBesok}}
+                </tbody>
+            </table>
+
+            <button class="showTambahKerjaanBesok">Tambah Rencana Pekerjaan </button>
+            <button class="hideTambahKerjaanBesok" style="display:none">Sembunyikan</button>
+            <button class="hapusKerjaanBesok">Hapus Pekerjaan</button>
+            <!-- <p>
+                <a class="btn" href="#">&nbsp;Ubah</a>
+                <a class="btn" href="#">&nbsp;Lihat Detail »</a>
+            </p> -->
+        </div>
+</template>
+
+<template name="detilKerjaanBesok">
+    {{#each dataKerjaanBesok}}
+    <!-- <tr> -->
+        <!-- <td>{{_id}}</td> -->
+            <!-- <td>{{tanggal_kerjaan}}</td> -->
+        {{#each detil_kerjaan}}
+        <tr>
+            <!-- <td>{{id}}</td> -->
+            <td>{{judul_kerjaan}}</td>
+            <td>{{detil_kerjaan}}</td>
+            <td>{{status_kerjaan}}</td>
+            <td>{{keterangan_kerjaan}}</td>
+        </tr>
+        {{/each}}
+    <!-- </tr> -->
+    {{/each}}
+</template>
+
+
+<template name="templateTambahKerjaanBesok">
+                <!-- <form> -->
+                    <label> Tanggal </label>
+                    <input type="text" name="tanggalKerjaanBesok" class="form-control input-sm chat-input" placeholder="MM/DD/YYYY contoh 12/31/2016" />
+                    <br>
+                    <label> Judul </label>
+                    <input type="text" name="judulKerjaanBesok" class="form-control input-sm chat-input" placeholder="Judul" />
+                    <br>
+                    <label> Detil </label>
+                    <br>
+                    <textarea rows="3" name="detilKerjaanBesok" style=" width: 90%;" placeholder="Detil Pekerjaan" ></textarea><br>
+                    <label> Status </label>
+                    <input type="text" name="statusKerjaanBesok" class="form-control input-sm chat-input" placeholder="Status" />
+                    <br>
+                    <label> Keterangan </label>
+                    <input type="text" name="keteranganKerjaanBesok" class="form-control input-sm chat-input" placeholder="Keterangan" />
+                    <br> 
+                    <!-- <input type="submit" value="Simpan Pekerjaan"> -->
+                    <button class="TambahKerjaanBesok">Simpan Pekerjaan</button>
+                <!-- </form> -->
+</template>
+

@@ -1,0 +1,55 @@
+<template name="Rekap_masal">
+    {{> navBar}}
+	<h2>Rekap Absen Masal</h2>
+    <!-- {{> showListRekapanMasal}} -->
+	<div>
+		{{#each data_absen}}
+            <table class="table table-bordered  table-striped  table-condensed">
+                <tbody>
+                    <tr class="success">
+                        <th>No</th>
+                        <th>Data Absensi</th>
+                        <th>Foto Masuk</th>
+                        <th>Foto Pulang</th>
+                        <th>Ket</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>
+                        	<label>Nama : {{username}}</label>
+                        	<br>
+                            <label>Tanggal : {{tanggal_absen}}</label>
+                            <br>
+                        	<label>Jam Masuk : {{jam_masuk}}</label>
+                        	<br>
+                        	<label>Jam Pulang : {{jam_pulang}}</label>
+                        </td>
+                        <td>
+                        	<img class="media-object" src="{{foto_masuk}}">
+                        </td>
+                        <td>
+                        	<img class="media-object" src="{{foto_pulang}}">
+                        </td>
+
+                        <td data-id={{_id}}>
+                            <input type="" style="display:block" name="hide_id" value="{{_id}}">
+                            <input type="button" class="hapusAbsenMasuk" value="Hapus Absen Masuk">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+      	{{/each}}
+    </div>
+</template>
+
+<template name="showListRekapanMasal">
+    <!-- <select name="sss"> -->
+        {{#each data_nama}}
+            <!-- <option>{{username}}</option> -->
+            <label>id : {{_id}}</label>
+            <label>nama : {{username}}</label>
+            <label>profile : {{profile.npk}}</label>
+            <input type="button" class="tambahProfile" value="tambahProfile"><br>
+        {{/each}}
+    <!-- </select> -->
+</template>

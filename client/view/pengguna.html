@@ -1,0 +1,48 @@
+<template name="Pengguna">
+    {{> navBar}}
+    <h2>Rekap Absen Individu</h2>
+    <div>
+            <table class="table table-bordered  table-striped  table-condensed">
+                <tbody>
+                    <tr class="success">
+                        <!-- <th>No</th> -->
+                        <th>NPK</th>
+                        <th>KODE USER</th>
+                        <th>NAMA</th>
+                        <th>JABATAN</th>
+                        <th>POSISI</th>
+                        <th>BIDANG</th>
+                        <th>KETERANGAN</th>
+                    </tr>
+
+                    {{#each data_absen}}
+                    <tr>
+                        <td>
+                            <label>{{profile.npk}}</label>
+                        </td>
+                        <td>
+                            <label>{{username}}</label>
+                        </td>
+                        <td>
+                            <label>{{profile.nama}}</label>
+                        </td>
+                        <td>
+                            <label>{{profile.jabatan}}</label>
+                        </td>
+                        <td>
+                            <label>{{profile.posisi}}</label>
+                        </td>
+                        <td>
+                            <label>{{profile.bidang}}</label>
+                        </td>
+
+                        <td data-id={{_id}}>
+                            <input type="" style="display:block" name="hide_id" value="{{_id}}">
+                            <input type="button" class="hapusAbsenMasuk" value="Hapus Absen Masuk">
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+    </div>
+</template>

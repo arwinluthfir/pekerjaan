@@ -1,0 +1,44 @@
+<template name="Penilaian">
+    {{> navBar}}
+	<h2>Penilaian Pekerjaan</h2>
+	<div>
+            <table class="table table-bordered  table-striped  table-condensed">
+                <tbody>
+                    <tr class="success">
+                        <th>ID</th>
+                        <th>USERNAME</th>
+                        <th>TANGGAL</th>
+                        <th>DETIL KERJAAN</th>
+                        <th>DETIL KERJAAN</th>
+                    </tr>
+
+                    {{#each data_kerjaan}}
+                    <tr>
+                        <td>
+                            <label>{{_id}}</label>
+                        </td>
+                        <td>
+                        	<label>{{username}}</label>
+                        </td>
+                        <td>
+                            <label>{{tanggal_kerjaan}}</label>
+                        </td>
+                        <td>
+                            {{#each detil_kerjaan}}
+                                <label>{{detil_kerjaan}}</label><br>
+                                <label>{{status_kerjaan}}</label><br>
+                            {{/each}}
+                        </td>
+                        <td>
+                            <!-- {{#each gabung}} -->
+                                <!-- <label>{{jam_masuk}}</label><br> -->
+                            <!-- {{/each}} -->
+
+                            <input type="button" class="hapusPekerjaan" value="Hapus Absen Masuk">
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+    </div>
+</template>

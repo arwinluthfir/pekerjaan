@@ -1,0 +1,38 @@
+
+<template name="Profile">
+    
+    {{> navBar}}
+    <div class="row">
+        <div class="col-md-offset-5 col-md-3">
+            <div class="form-login">
+                <h4>Profil Pengguna</h4>
+                <!-- <form> -->
+                {{#each dataPengguna}}
+                    <label> NPK : {{profile.npk}}</label>
+                    <br>
+                    <label> Kode User : {{username}}</label>
+                    <br>
+                    <label> Nama Lengkap : {{profile.nama}}</label>
+                    <br>
+                    <label> Jabatan : {{profile.jabatan}}</label>
+                    <br>    
+                    <label> Posisi : {{profile.posisi}}</label>
+                    <br>    
+                    <label> Bidang : {{profile.bidang}}</label>
+                    <br>    
+                {{/each}}
+                    
+                <!-- </form> -->
+
+            </div>
+        </div>
+    </div>
+                <!-- {{#each pesan}}
+                        <p>{{_id}}</p>
+                        <p>tes</p>
+                    {{/each}} -->
+                    <!-- {{pesan}} -->
+
+
+                
+</template>
